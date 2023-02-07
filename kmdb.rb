@@ -180,30 +180,43 @@ tom_hardy = Actor.find_by({ "name" => "Tom Hardy"})
 joe_gordon_levitt = Actor.find_by({ "name" => "Joseph Gordon-Levitt"})
 anne_hathaway = Actor.find_by({ "name" => "Anne Hathaway"})
 
-# Batman Begins          Christian Bale        Bruce Wayne
+bruce_wayne_bb = Role.new
+bruce_wayne_bb["character_name"] = "Bruce Wayne"
+bruce_wayne_bb["movie_id"] = batman_begins["id"]
+bruce_wayne_bb["actor_id"] = christian_bale["id"]
+bruce_wayne_bb.save
+
+bruce_wayne_dn = Role.new
+bruce_wayne_dn["character_name"] = "Bruce Wayne"
+bruce_wayne_dn["movie_id"] = dark_knight["id"]
+bruce_wayne_dn["actor_id"] = christian_bale["id"]
+bruce_wayne_dn.save
+
+bruce_wayne_dnr = Role.new
+bruce_wayne_dnr["character_name"] = "Bruce Wayne"
+bruce_wayne_dnr["movie_id"] = dark_knight_rises["id"]
+bruce_wayne_dnr["actor_id"] = christian_bale["id"]
+bruce_wayne_dnr.save
+
 # Batman Begins          Michael Caine         Alfred
 # Batman Begins          Liam Neeson           Ra's Al Ghul
 # Batman Begins          Katie Holmes          Rachel Dawes
 # Batman Begins          Gary Oldman           Commissioner Gordon
-# The Dark Knight        Christian Bale        Bruce Wayne
 # The Dark Knight        Heath Ledger          Joker
 # The Dark Knight        Aaron Eckhart         Harvey Dent
 # The Dark Knight        Michael Caine         Alfred
 # The Dark Knight        Maggie Gyllenhaal     Rachel Dawes
-# The Dark Knight Rises  Christian Bale        Bruce Wayne
 # The Dark Knight Rises  Gary Oldman           Commissioner Gordon
 # The Dark Knight Rises  Tom Hardy             Bane
 # The Dark Knight Rises  Joseph Gordon-Levitt  John Blake
 # The Dark Knight Rises  Anne Hathaway         Selina Kyle
-# t.string "character_name"
-# t.integer "movie_id"
-# t.integer "actor_id"
 
 
 # Prints a header for the movies output
 puts "Movies"
 puts "======"
 puts ""
+#should be a loop 
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
@@ -213,6 +226,8 @@ puts ""
 puts "Top Cast"
 puts "========"
 puts ""
+#should be a loop 
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+#should be a loop 
