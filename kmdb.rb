@@ -73,7 +73,7 @@
 Studio.destroy_all
 Actor.destroy_all
 Movie.destroy_all
-Studio.destroy_all
+Role.destroy_all
 
 
 # Generate models and tables, according to the domain model.
@@ -198,36 +198,96 @@ bruce_wayne_dnr["movie_id"] = dark_knight_rises["id"]
 bruce_wayne_dnr["actor_id"] = christian_bale["id"]
 bruce_wayne_dnr.save
 
-# Batman Begins          Michael Caine         Alfred
-# Batman Begins          Liam Neeson           Ra's Al Ghul
-# Batman Begins          Katie Holmes          Rachel Dawes
-# Batman Begins          Gary Oldman           Commissioner Gordon
-# The Dark Knight        Heath Ledger          Joker
-# The Dark Knight        Aaron Eckhart         Harvey Dent
-# The Dark Knight        Michael Caine         Alfred
-# The Dark Knight        Maggie Gyllenhaal     Rachel Dawes
-# The Dark Knight Rises  Gary Oldman           Commissioner Gordon
-# The Dark Knight Rises  Tom Hardy             Bane
-# The Dark Knight Rises  Joseph Gordon-Levitt  John Blake
-# The Dark Knight Rises  Anne Hathaway         Selina Kyle
+alfred_bb = Role.new
+alfred_bb["character_name"] = "Alfred"
+alfred_bb["movie_id"] = batman_begins["id"]
+alfred_bb["actor_id"] = michael_caine["id"]
+alfred_bb.save
 
+alfred_dn = Role.new
+alfred_dn["character_name"] = "Alfred"
+alfred_dn["movie_id"] = dark_knight["id"]
+alfred_dn["actor_id"] = michael_caine["id"]
+alfred_dn.save
+
+gordon_bb = Role.new
+gordon_bb["character_name"] = "Commissioner Gordon"
+gordon_bb["movie_id"] = batman_begins["id"]
+gordon_bb["actor_id"] = gary_oldman["id"]
+gordon_bb.save
+
+gordon_dnr = Role.new
+gordon_dnr["character_name"] = "Commissioner Gordon"
+gordon_dnr["movie_id"] = dark_knight_rises["id"]
+gordon_dnr["actor_id"] = gary_oldman["id"]
+gordon_dnr.save
+
+rachel_bb = Role.new
+rachel_bb["character_name"] = "Rachel Dawes"
+rachel_bb["movie_id"] = batman_begins["id"]
+rachel_bb["actor_id"] = katie_holmes["id"]
+rachel_bb.save
+
+rachel_dn = Role.new
+rachel_dn["character_name"] = "Rachel Dawes"
+rachel_dn["movie_id"] = dark_knight["id"]
+rachel_dn["actor_id"] = maggie_gyllenhaal["id"]
+rachel_dn.save
+
+ghul_bb = Role.new
+ghul_bb["character_name"] = "Ra's Al Ghul"
+ghul_bb["movie_id"] = batman_begins["id"]
+ghul_bb["actor_id"] = liam_neeson["id"]
+ghul_bb.save
+
+joker_dn = Role.new
+joker_dn["character_name"] = "Joker"
+joker_dn["movie_id"] = dark_knight["id"]
+joker_dn["actor_id"] = heath_ledger["id"]
+joker_dn.save
+
+dent_dn = Role.new
+dent_dn["character_name"] = "Harvey Dent"
+dent_dn["movie_id"] = dark_knight["id"]
+dent_dn["actor_id"] = aaron_eckhart["id"]
+dent_dn.save
+
+bane_dnr = Role.new
+bane_dnr["character_name"] = "Bane"
+bane_dnr["movie_id"] = dark_knight_rises["id"]
+bane_dnr["actor_id"] = tom_hardy["id"]
+bane_dnr.save
+
+blake_dnr = Role.new
+blake_dnr["character_name"] = "John Blake"
+blake_dnr["movie_id"] = dark_knight_rises["id"]
+blake_dnr["actor_id"] = joe_gordon_levitt["id"]
+blake_dnr.save
+
+kyle_dnr = Role.new
+kyle_dnr["character_name"] = "Selina Kyle"
+kyle_dnr["movie_id"] = dark_knight_rises["id"]
+kyle_dnr["actor_id"] = anne_hathaway["id"]
+kyle_dnr.save
+
+puts "There are #{Role.all.count} roles"
 
 # Prints a header for the movies output
+puts ""
 puts "Movies"
 puts "======"
 puts ""
-#should be a loop 
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
+
+
 
 # Prints a header for the cast output
 puts ""
 puts "Top Cast"
 puts "========"
 puts ""
-#should be a loop 
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
-#should be a loop 
