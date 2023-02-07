@@ -73,6 +73,7 @@
 Studio.destroy_all
 Actor.destroy_all
 Movie.destroy_all
+Studio.destroy_all
 
 
 # Generate models and tables, according to the domain model.
@@ -126,9 +127,9 @@ tom_hardy = Actor.new
 tom_hardy["name"] = "Tom Hardy"
 tom_hardy.save
 
-jo_gordon_levitt = Actor.new
-jo_gordon_levitt["name"] = "Joseph Gordon-Levitt"
-jo_gordon_levitt.save
+joe_gordon_levitt = Actor.new
+joe_gordon_levitt["name"] = "Joseph Gordon-Levitt"
+joe_gordon_levitt.save
 
 anne_hathaway = Actor.new
 anne_hathaway["name"] = "Anne Hathaway"
@@ -163,6 +164,40 @@ dark_knight_rises.save
 puts "There are #{Movie.all.count} movies"
 
 # Insert roles
+batman_begins = Movie.find_by({ "title" => "Batman Begins"})
+dark_knight = Movie.find_by({ "title" => "The Dark Knight"})
+dark_knight_rises = Movie.find_by({ "title" => "The Dark Knight Rises"})
+
+christian_bale = Actor.find_by({ "name" => "Christian Bale"})
+michael_caine = Actor.find_by({ "name" => "Michael Caine"})
+liam_neeson = Actor.find_by({ "name" => "Liam Neeson"})
+katie_holmes = Actor.find_by({ "name" => "Katie Holmes"})
+gary_oldman = Actor.find_by({ "name" => "Gary Oldman"})
+heath_ledger = Actor.find_by({ "name" => "Heath Ledger"})
+aaron_eckhart = Actor.find_by({ "name" => "Aaron Eckhart"})
+maggie_gyllenhaal = Actor.find_by({ "name" => "Maggie Gyllenhal"})
+tom_hardy = Actor.find_by({ "name" => "Tom Hardy"})
+joe_gordon_levitt = Actor.find_by({ "name" => "Joseph Gordon-Levitt"})
+anne_hathaway = Actor.find_by({ "name" => "Anne Hathaway"})
+
+# Batman Begins          Christian Bale        Bruce Wayne
+# Batman Begins          Michael Caine         Alfred
+# Batman Begins          Liam Neeson           Ra's Al Ghul
+# Batman Begins          Katie Holmes          Rachel Dawes
+# Batman Begins          Gary Oldman           Commissioner Gordon
+# The Dark Knight        Christian Bale        Bruce Wayne
+# The Dark Knight        Heath Ledger          Joker
+# The Dark Knight        Aaron Eckhart         Harvey Dent
+# The Dark Knight        Michael Caine         Alfred
+# The Dark Knight        Maggie Gyllenhaal     Rachel Dawes
+# The Dark Knight Rises  Christian Bale        Bruce Wayne
+# The Dark Knight Rises  Gary Oldman           Commissioner Gordon
+# The Dark Knight Rises  Tom Hardy             Bane
+# The Dark Knight Rises  Joseph Gordon-Levitt  John Blake
+# The Dark Knight Rises  Anne Hathaway         Selina Kyle
+# t.string "character_name"
+# t.integer "movie_id"
+# t.integer "actor_id"
 
 
 # Prints a header for the movies output
