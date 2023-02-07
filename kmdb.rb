@@ -72,6 +72,7 @@
 
 Studio.destroy_all
 Actor.destroy_all
+Movie.destroy_all
 
 
 # Generate models and tables, according to the domain model.
@@ -82,9 +83,9 @@ Actor.destroy_all
 # TODO!
 
 # Insert studios
-new_studio = Studio.new
-new_studio["name"] = "Warner Bros."
-new_studio.save
+warner_bros = Studio.new
+warner_bros["name"] = "Warner Bros."
+warner_bros.save
 
 puts "There is #{Studio.all.count} studio"
 
@@ -136,6 +137,30 @@ anne_hathaway.save
 puts "There are #{Actor.all.count} actors"
 
 # Insert movies
+warner_bros = Studio.find_by({ "name" => "Warner Bros."})
+
+batman_begins = Movie.new
+batman_begins["title"] = "Batman Begins"
+batman_begins["rated"] = "PG-13"
+batman_begins["year_released"] = 2005
+batman_begins["studio_id"] = warner_bros["id"]
+batman_begins.save
+
+dark_knight = Movie.new
+dark_knight["title"] = "The Dark Knight"
+dark_knight["rated"] = "PG-13"
+dark_knight["year_released"] = 2008
+dark_knight["studio_id"] = warner_bros["id"]
+dark_knight.save
+
+dark_knight_rises = Movie.new
+dark_knight_rises["title"] = "The Dark Knight Rises"
+dark_knight_rises["rated"] = "PG-13"
+dark_knight_rises["year_released"] = 2012
+dark_knight_rises["studio_id"] = warner_bros["id"]
+dark_knight_rises.save
+
+puts "There are #{Movie.all.count} movies"
 
 # Insert roles
 
